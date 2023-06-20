@@ -1,0 +1,10 @@
+Installation des biblioth`eques python requises :
+$ pip install -r requirements.txt
+
+Principales commandes :
+$ python main.py buildDB all
+$ python main.py buildDB directory Captures/your_new_captures
+$ python main.py buildDB files Captures/new_capture_1 Captures/new_capture_2
+$ python main.py mergeDB -dest DB/
+$ python main.py learn
+$ python main.py guess -path "Captures/your_capture.pcap"

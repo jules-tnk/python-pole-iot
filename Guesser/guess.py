@@ -10,6 +10,7 @@ def findName(prediction, tagsDictionnary):
             return name
 
 
+
 def guess(path):
 
     tagsDictionnary = createTagsDictionnary()

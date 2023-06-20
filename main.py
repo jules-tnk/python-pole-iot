@@ -63,7 +63,7 @@ if __name__ == '__main__':
         if merge():
             print("TrainingDB built. path : Learner/TrainingDB/trainingDB.csv")
         else:
-            raise Error("error occur while merging all db")
+            raise Exception("error occur while merging all db")
 
     elif args.action == 'buildDB':
         #####################################
@@ -91,7 +91,7 @@ if __name__ == '__main__':
             if build(pcapFile, args.dest[0]):
                 print(f"{pcapFile} : Done!\n")
             else:
-                raise Error(
+                raise Exception(
                     f"error occured while building following file : {pcapFile}")
 
         print("all pcap files done!")
