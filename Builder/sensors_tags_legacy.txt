@@ -1,0 +1,8 @@
+Fridge : 1
+Capteur temperature : 2
+Humidity : 3
+Climatiseur : 4
+Visibility : 5
+Dish washer : 6
+Porte garage : 7
+Home office : 8

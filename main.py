@@ -35,18 +35,27 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.action == 'guess':
-        ######################################
-        ## guess connected object on network##
-        ######################################
+        # guess connected object on network
         txt_xgboost, txt_randomforest = guess(
             args.path[0])
+        """
+        pcapPath = args.path[0]
+        pcapFileName = pcapPath.split('/')[-1]
+        pcapFileName = pcapFileName.split('.')[0]
+        csvFileName = "/DB/" + pcapFileName + ".csv"
+        # open csv file
+        import pandas as pd
+        df = pd.read_csv(csvFileName)
+        # print all "sensorID"
+        print("sensorID :")
+        print(df['sensorID'].unique())
+        """
+
         print(txt_xgboost)
         print(txt_randomforest)
 
     elif args.action == 'learn':
-        ######################################
-        # learn from DB and test on small DB #
-        ######################################
+        # learn from DB and test on small DB
         txt, mat, _, _ = learn('xgboost')
         print("XGBoost : " + txt)
         print("matrice de confusion :\n", mat)
@@ -55,9 +64,7 @@ if __name__ == '__main__':
         print("matrice de confusion :\n", mat)
 
     elif args.action == 'mergeDB':
-        ######################################
-        ##   merge all DB in one csv file   ##
-        ######################################
+        # merge all DB in one csv file
 
         print("...merging all files from DB/ into a .csv file...")
         if merge():
@@ -66,9 +73,7 @@ if __name__ == '__main__':
             raise Exception("error occur while merging all db")
 
     elif args.action == 'buildDB':
-        #####################################
-        ##       build DB from files       ##
-        #####################################
+        # build DB from files
         if args.where == 'all':
             pcapFiles = glob.glob("Captures/*.pcap*")
         elif args.where == 'directory':

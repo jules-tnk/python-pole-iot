@@ -18,8 +18,9 @@ def guess(path):
     x_guess = build_guess_db(path)
     _, _, prediction_xgboost, proba_xgboost = learn(
         'xgboost', guess=True, x_guess=x_guess)
+
     _, _, prediction_randomforest, proba_randomforest = learn(
-        'xgboost', guess=True, x_guess=x_guess)
+        'randomforest', guess=True, x_guess=x_guess)
 
     txt_xgboost = f"Prédiction de XGBoost : {findName(prediction_xgboost, tagsDictionnary)} (précision : {int(100*max(proba_xgboost[0]))}%)"
     txt_randomforest = f"Prédiction de RandomForest : {findName(prediction_randomforest, tagsDictionnary)} (précision : {int(100*max(proba_randomforest[0]))}%)"
